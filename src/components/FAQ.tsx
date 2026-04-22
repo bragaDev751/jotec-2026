@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqs = [
   { q: "Preciso ter conhecimento prévio?", a: "Não! A JOTEC é feita para todos os níveis, do iniciante ao avançado. Nosso foco é a troca de experiências e o aprendizado prático." },
   { q: "O evento terá certificado?", a: "Sim! Todos os participantes que confirmarem presença no evento receberão certificado oficial de horas complementares." },
-  { q: "Onde vai ser?", a: "O evento será realizado no auditório principal da instituição, com transmissão simultânea para que ninguém perca o conteúdo." },
+  { q: "Onde vai ser?", a: "Divulgaremos os locais do evento em breve." },
 ];
 
 export default function FAQ() {
