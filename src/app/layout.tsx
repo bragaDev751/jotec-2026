@@ -15,9 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "VIII JOTEC 2026 | IA, Dados e Conexões",
   description: "Junte-se a nós no maior evento de tecnologia da região. Prepare-se para o futuro em tempo real.",
-  icons: {
-    icon: "/favicon.png", 
-  },
   openGraph: {
     title: "VIII JOTEC 2026",
     description: "IA, Dados e Conexões em tempo real. Garanta sua vaga!",
