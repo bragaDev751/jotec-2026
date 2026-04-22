@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Speakers from "@/components/Speakers";
-import Countdown from "@/components/Countdown";
 import StickyCTA from "@/components/StickyCTA";
 import FAQ from "@/components/FAQ";
 import Reveal from "@/components/Reveal"; 
@@ -16,7 +15,6 @@ export default function Home() {
         <Hero />
         <Reveal><About /></Reveal>
         <Reveal><Speakers /></Reveal>
-        <Reveal><Countdown /></Reveal>
         <Reveal><FAQ /></Reveal>
         <StickyCTA />
       </div>

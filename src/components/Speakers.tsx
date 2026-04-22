@@ -1,31 +1,64 @@
-import Image from 'next/image';
+"use client";
+import { UserCircle2, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const speakers = [
-  { id: 1, name: 'Ana Silva', title: 'Especialista em IA Aplicada', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400', bio: 'Pioneira em soluções de IA para o setor financeiro.' },
-  { id: 2, name: 'Bruno Costa', title: 'Arquiteto de Dados', image: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=400', bio: 'Mestre em Big Data e streaming de alto desempenho.' },
-  { id: 3, name: 'Carla Dias', title: 'Head de Conexões', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400', bio: 'Focada em construir ecossistemas de inovação.' },
+  { id: 1, name: 'Revelação I', title: '', isMystery: true },
+  { id: 2, name: 'Revelação II', title: '', isMystery: true },
+  { id: 3, name: 'Revelação III', title: '', isMystery: true },
 ];
 
 export default function Speakers() {
   return (
-    <section id="palestrantes" className="py-24 px-6 bg-blue-1000">
+    <section id="palestrantes" className="py-32 px-6 bg-blue-950/20">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-extrabold mb-16 text-center text-white tracking-tight">
-          Nossos <span className="text-yellow-400">Palestrantes</span> de Elite
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="text-center mb-20 space-y-4">
+          <span className="inline-block bg-blue-900 border border-blue-700 text-yellow-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
+            O TIME DE ELITE
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            Nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">Palestrantes</span>
+          </h2>
+          <p className="text-blue-200 max-w-xl mx-auto text-lg">
+            Grandes nomes da tecnologia estão confirmados. Prepare-se para conexões que vão transformar sua visão.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {speakers.map((s) => (
-            <div key={s.id} className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000" />
-              <div className="relative bg-blue-900 border border-blue-800 rounded-2xl p-8 flex flex-col items-center text-center">
-                <div className="relative w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-yellow-400/50">
-                  <Image src={s.image} alt={s.name} fill className="object-cover" />
+            <motion.div 
+              key={s.id} 
+              whileHover={{ y: -5 }}
+              className="group relative p-[1px] rounded-3xl bg-gradient-to-b from-blue-700/50 to-transparent hover:from-yellow-400/50 transition-all duration-500"
+            >
+              <div className="bg-blue-900/60 rounded-3xl p-8 flex flex-col items-center text-center h-full backdrop-blur-xl border border-blue-800/50 shadow-2xl shadow-blue-950/30">
+                
+                <div className="relative w-36 h-36 rounded-full bg-blue-950 flex items-center justify-center mb-8 border-2 border-blue-800 shadow-inner overflow-hidden group-hover:border-yellow-400/50 transition-colors">
+                  
+                  <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-transparent animate-pulse" />
+                  <div className="absolute -inset-2 bg-blue-600/10 rounded-full blur-xl animate-pulse delay-150" />
+                  
+                  <UserCircle2 className="w-20 h-20 text-blue-800 relative z-10 group-hover:text-yellow-400/70 transition-colors duration-500" />
+                  
+                  <div className="absolute top-4 right-4 bg-blue-900 p-2 rounded-full border border-blue-700 z-20 group-hover:border-yellow-400/50">
+                    <Sparkles className="w-4 h-4 text-yellow-400/60 group-hover:text-yellow-400" />
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-1">{s.name}</h3>
-                <p className="text-yellow-400 font-medium mb-4 text-sm uppercase">{s.title}</p>
-                <p className="text-blue-100 text-sm">{s.bio}</p>
+
+                <h3 className="text-2xl font-bold text-white mb-2 tracking-tight group-hover:text-yellow-400 transition-colors">
+                  {s.name}
+                </h3>
+                
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-400/5 text-yellow-400 text-xs rounded-full font-bold uppercase tracking-widest border border-yellow-400/20 shadow-[0_0_15px_rgba(250,204,21,0.1)]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+                  {s.title}
+                </span>
+
+                <p className="text-blue-200 text-sm mt-5 leading-relaxed">
+                  Pioneiro em soluções disruptivas, com trajetória focada na JOTEC 2026.
+                </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
