@@ -1,23 +1,41 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { name: "Início", href: "#inicio" },
+  { name: "Destaques", href: "#sobre" },
+  { name: "Palestrantes", href: "#palestrantes" },
+  { name: "Dúvidas", href: "#faq" },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full z-50 top-0 bg-blue-950/60 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600 tracking-tighter">
-          VIII JOTEC
-        </span>
+    <nav className="fixed w-full z-50 top-0 bg-blue-950/80 border-b border-purple-500/20 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
-        <div className="hidden md:flex gap-8 text-sm font-medium items-center">
-          <a href="#sobre" className="text-blue-200 hover:text-yellow-400 transition-colors">Sobre</a>
-          <a href="#palestrantes" className="text-blue-200 hover:text-yellow-400 transition-colors">Palestrantes</a>
-          <a href="#faq" className="text-blue-200 hover:text-yellow-400 transition-colors">FAQ</a>
-          <a href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" className="bg-yellow-400 text-blue-950 px-5 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all">
-            Inscrever-se
+        <div className="flex items-center gap-3">
+          <Image src="/logo.png" alt="Logo VIII JOTEC" width={120} height={40} className="h-10 w-auto" />
+        </div>
+        
+        <div className="hidden md:flex gap-8 text-sm font-medium items-center text-white">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className="uppercase tracking-widest hover:text-purple-400 transition-all duration-300 border-b border-transparent hover:border-purple-400"
+            >
+              {link.name}
+            </a>
+          ))}
+          
+          <a href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" 
+             target="_blank"
+             className="bg-purple-600/20 border border-purple-500 text-purple-200 px-6 py-2 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-purple-500 hover:text-white transition-all">
+            Inscrição
           </a>
         </div>
 
@@ -27,16 +45,24 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-blue-950/95 backdrop-blur-md border-b border-blue-800 p-6 flex flex-col gap-6 text-center animate-in slide-in-from-top-4">
-          <a href="#sobre" onClick={() => setIsOpen(false)} className="text-lg text-white hover:text-yellow-400">Sobre</a>
-          <a href="#palestrantes" onClick={() => setIsOpen(false)} className="text-lg text-white hover:text-yellow-400">Palestrantes</a>
-          <a href="#faq" onClick={() => setIsOpen(false)} className="text-lg text-white hover:text-yellow-400">FAQ</a>
+        <div className="md:hidden bg-blue-950/95 backdrop-blur-md border-b border-purple-900 p-6 flex flex-col gap-6 text-center animate-in slide-in-from-top-4">
+          {navLinks.map((link) => (
+            <a 
+              key={link.name} 
+              href={link.href} 
+              onClick={() => setIsOpen(false)} 
+              className="text-lg text-white uppercase tracking-widest hover:text-purple-400"
+            >
+              {link.name}
+            </a>
+          ))}
           <a 
             href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" 
             onClick={() => setIsOpen(false)}
-            className="bg-yellow-400 text-blue-950 py-3 rounded-full font-bold"
+            target="_blank"
+            className="border border-purple-500 text-purple-300 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-purple-500 hover:text-white"
           >
-            Inscrever-se
+            Inscrição
           </a>
         </div>
       )}

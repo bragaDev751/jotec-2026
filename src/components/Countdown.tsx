@@ -20,21 +20,24 @@ export default function Countdown() {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-blue-950/50 border-y border-blue-900">
+    <section className="py-24 px-6 bg-gradient-to-b from-blue-950 via-purple-950/20 to-blue-950 border-y border-purple-500/10">
       <div className="max-w-4xl mx-auto text-center">
-        <h3 className="text-blue-400 font-bold mb-10 uppercase tracking-[0.3em] text-xs">O contador não para</h3>
+        <h3 className="text-purple-400 font-bold mb-12 uppercase tracking-[0.3em] text-xs">Faltam apenas</h3>
         
         <div className="flex justify-center gap-4 mb-12">
           {Object.entries(timeLeft).map(([label, value]) => (
-            <div key={label} className="relative bg-blue-900/30 p-4 rounded-2xl border border-blue-800 w-20 md:w-28 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-600/10 to-transparent" />
-              <div className="text-3xl md:text-5xl font-mono font-bold text-white relative z-10">{value}</div>
-              <div className="text-[10px] text-blue-400 uppercase mt-1 tracking-widest relative z-10">{label}</div>
+            <div key={label} className="relative bg-blue-950/50 backdrop-blur-md p-6 rounded-3xl border border-purple-500/20 w-24 md:w-32">
+              <div className="text-4xl md:text-5xl font-bold text-white">{value}</div>
+              <div className="text-[10px] text-purple-300 uppercase mt-2 tracking-widest">{label}</div>
             </div>
           ))}
         </div>
 
-        <a href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" target="_blank" className="bg-yellow-400 text-blue-950 font-bold py-5 px-12 rounded-full shadow-[0_0_30px_rgba(250,204,21,0.2)] hover:shadow-[0_0_50px_rgba(250,204,21,0.4)] transition-all animate-pulse">
+        <a 
+          href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" 
+          target="_blank" 
+          className="inline-block bg-yellow-400 text-blue-950 font-bold py-5 px-12 rounded-xl shadow-[0_0_40px_rgba(250,204,21,0.2)] hover:shadow-[0_0_60px_rgba(250,204,21,0.4)] hover:bg-white transition-all"
+        >
           GARANTIR MINHA VAGA
         </a>
       </div>

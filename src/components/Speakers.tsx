@@ -1,62 +1,59 @@
 "use client";
-import { UserCircle2, Sparkles } from 'lucide-react';
+import { Lock, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const speakers = [
-  { id: 1, name: 'Revelação I', title: '', isMystery: true },
-  { id: 2, name: 'Revelação II', title: '', isMystery: true },
-  { id: 3, name: 'Revelação III', title: '', isMystery: true },
+  { id: 1, name: 'Atração Surpresa', role: 'Em breve' },
+  { id: 2, name: 'Atração Surpresa', role: 'Em breve' },
+  { id: 3, name: 'Atração Surpresa', role: 'Em breve' },
 ];
 
 export default function Speakers() {
   return (
-    <section id="palestrantes" className="py-32 px-6 bg-blue-950/20">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20 space-y-4">
-          <span className="inline-block bg-blue-900 border border-blue-700 text-yellow-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
-            O TIME DE ELITE
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Nossos <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">Palestrantes</span>
+    <section id="palestrantes" className="py-32 px-6 relative overflow-hidden bg-blue-950">
+      
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 -left-[10%] w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full" />
+      </div>
+
+      <div className="max-w-7xl mx-auto z-10 relative">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-extrabold text-white mb-6">
+            Time de <span className="text-purple-400">Elite</span>
           </h2>
-          <p className="text-blue-200 max-w-xl mx-auto text-lg">
-            Grandes nomes da tecnologia estão confirmados. Prepare-se para conexões que vão transformar sua visão.
+          <p className="text-blue-200/60 text-xl max-w-2xl mx-auto">
+            Preparando os nomes que irão transformar sua visão. 
+            <span className="block text-sm mt-2 text-purple-400/80 font-bold tracking-widest uppercase">Novidades em breve</span>
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {speakers.map((s) => (
             <motion.div 
               key={s.id} 
               whileHover={{ y: -5 }}
-              className="group relative p-[1px] rounded-3xl bg-gradient-to-b from-blue-700/50 to-transparent hover:from-yellow-400/50 transition-all duration-500"
+              className="group relative bg-blue-950/60 p-[2px] rounded-[2.5rem] border border-purple-500/10 backdrop-blur-xl transition-all duration-500"
             >
-              <div className="bg-blue-900/60 rounded-3xl p-8 flex flex-col items-center text-center h-full backdrop-blur-xl border border-blue-800/50 shadow-2xl shadow-blue-950/30">
+              <div className="bg-blue-950/90 rounded-[2.4rem] p-10 flex flex-col items-center text-center h-full opacity-80">
                 
-                <div className="relative w-36 h-36 rounded-full bg-blue-950 flex items-center justify-center mb-8 border-2 border-blue-800 shadow-inner overflow-hidden group-hover:border-yellow-400/50 transition-colors">
-                  
-                  <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 to-transparent animate-pulse" />
-                  <div className="absolute -inset-2 bg-blue-600/10 rounded-full blur-xl animate-pulse delay-150" />
-                  
-                  <UserCircle2 className="w-20 h-20 text-blue-800 relative z-10 group-hover:text-yellow-400/70 transition-colors duration-500" />
-                  
-                  <div className="absolute top-4 right-4 bg-blue-900 p-2 rounded-full border border-blue-700 z-20 group-hover:border-yellow-400/50">
-                    <Sparkles className="w-4 h-4 text-yellow-400/60 group-hover:text-yellow-400" />
+                <div className="relative mb-8">
+                  <div className="w-32 h-32 rounded-full bg-blue-900/30 flex items-center justify-center border-2 border-dashed border-purple-500/30">
+                    <Lock className="w-10 h-10 text-purple-500/30" />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-blue-900 p-3 rounded-full border-4 border-blue-950">
+                    <Sparkles className="w-5 h-5 text-purple-400" />
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-2 tracking-tight group-hover:text-yellow-400 transition-colors">
-                  {s.name}
-                </h3>
-                
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-400/5 text-yellow-400 text-xs rounded-full font-bold uppercase tracking-widest border border-yellow-400/20 shadow-[0_0_15px_rgba(250,204,21,0.1)]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
-                  {s.title}
-                </span>
-
-                <p className="text-blue-200 text-sm mt-5 leading-relaxed">
-                  Pioneiro em soluções disruptivas, com trajetória focada na JOTEC 2026.
-                </p>
+                <div className="space-y-3">
+                  <h3 className="text-2xl font-bold text-white tracking-tight opacity-70">
+                    {s.name}
+                  </h3>
+                  <p className="text-sm font-bold text-blue-400/50 uppercase tracking-widest px-4 py-1.5 rounded-full inline-block border border-blue-900/50">
+                    {s.role}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
