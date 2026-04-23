@@ -27,7 +27,7 @@ export default function Hero() {
       </div>
 
       <a 
-        href="https://doity.com.br/seu-link-aqui" 
+        href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" 
         target="_blank"
         className="group mt-12 bg-yellow-400 hover:bg-white text-blue-950 font-bold py-5 px-10 rounded-full text-lg shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:shadow-[0_0_40px_rgba(250,204,21,0.5)] transition-all duration-300 flex items-center gap-2"
       >
