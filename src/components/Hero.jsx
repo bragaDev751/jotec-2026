@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Gift } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -17,8 +17,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/50 border border-purple-500/20 backdrop-blur-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
-          <span className="text-yellow-400 text-sm font-bold tracking-widest uppercase">
+          <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+          <span className="text-purple-400 text-sm font-bold tracking-widest uppercase">
             VIII JOTEC 2026
           </span>
         </motion.div>
@@ -29,7 +29,7 @@ export default function Hero() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tighter text-white drop-shadow-lg"
         >
-          PRÉ-VENDA <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600">EXCLUSIVA!</span>
+          PRIMEIRO LOTE <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">ABERTO!</span>
         </motion.h1>
         
         <motion.p 
@@ -38,28 +38,21 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl text-blue-100 font-light"
         >
-          VIII JOTEC - Garanta seu ingresso com BRINDE!
+          Garanta sua vaga na jornada de tecnologia mais aguardada do ano.
         </motion.p>
       </div>
 
       <motion.a 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
         href="https://doity.com.br/jotec--jornada-de-tecnologia-dos-academicos-de-sistemas-de-informacao-1" 
         target="_blank"
-        className="group mt-10 bg-yellow-400 hover:bg-white text-blue-950 font-bold py-5 px-10 rounded-xl text-lg shadow-[0_0_20px_rgba(250,204,21,0.3)] transition-all z-10 flex items-center gap-2"
+        className="group mt-12 bg-purple-600 hover:bg-purple-500 text-white font-bold py-5 px-10 rounded-xl text-lg shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all z-10 flex items-center gap-2"
       >
-        COMPRAR AGORA - LOTE LIMITADO!
+        INSCREVER-SE AGORA
         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
       </motion.a>
-
-      <motion.div 
-        className="mt-12 p-6 rounded-2xl border border-purple-500/20 bg-purple-950/20 backdrop-blur-md max-w-lg shadow-2xl z-10"
-      >
-        <div className="flex items-center justify-center gap-3 text-yellow-400 mb-2">
-            <Gift className="w-5 h-5" />
-            <h3 className="font-bold uppercase tracking-widest text-sm">Receba um brinde exclusivo</h3>
-        </div>
-        <p className="text-blue-100/80 text-sm">Kit JOTEC e pin exclusivo (LIMITADO!)</p>
-      </motion.div>
     </section>
   );
 }
