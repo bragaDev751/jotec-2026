@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Speakers from "@/components/Speakers";
 import Countdown from "@/components/Countdown";
+import Workshops from "@/components/Workshops"; 
 import FAQ from "@/components/FAQ";
 import StickyCTA from "@/components/StickyCTA";
 
@@ -15,7 +16,7 @@ export default function Home() {
         <Hero />
         <About />
         <Speakers />
-        
+        <Workshops /> 
         <FAQ />
       </div>
 

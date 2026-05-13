@@ -1,60 +1,97 @@
 "use client";
-import { Lock, Sparkles } from 'lucide-react';
+import Image from "next/image";
+import { Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const speakers = [
-  { id: 1, name: 'Atração Surpresa', role: 'Em breve' },
-  { id: 2, name: 'Atração Surpresa', role: 'Em breve' },
-  { id: 3, name: 'Atração Surpresa', role: 'Em breve' },
+  { 
+    id: 1, 
+    name: 'Renato Rodrigues', 
+    role: 'IA em Tempo Real e IoT', 
+    image: '/RENATO RODRIGUES.jpg' 
+  },
+  { 
+    id: 2, 
+    name: 'Tiago Linhares', 
+    role: 'Transformação Digital e IA', 
+    image: '/Tiago Linhares.jpg' 
+  },
+  { 
+    id: 3, 
+    name: 'Emannuel Diego', 
+    role: 'Visão Computacional na Agricultura', 
+    image: '/Emannuel Diego.jpg' 
+  },
 ];
 
 export default function Speakers() {
   return (
-    <section id="palestrantes" className="py-32 px-6 relative overflow-hidden bg-blue-950">
+    <section id="palestrantes" className="py-24 px-6 relative bg-blue-950 overflow-hidden">
       
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 -left-[10%] w-[500px] h-[500px] bg-purple-600/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px] rounded-full" />
+      {/* Background sutil para manter o padrão */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 blur-[100px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 blur-[100px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto z-10 relative">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-extrabold text-white mb-6">
+      <div className="max-w-6xl mx-auto z-10 relative">
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight"
+          >
             Time de <span className="text-purple-400">Elite</span>
-          </h2>
-          <p className="text-blue-200/60 text-xl max-w-2xl mx-auto">
-            Preparando os nomes que irão transformar sua visão. 
-            <span className="block text-sm mt-2 text-purple-400/80 font-bold tracking-widest uppercase">Novidades em breve</span>
+          </motion.h2>
+          <p className="text-blue-200/60 text-lg max-w-xl mx-auto">
+            Palestrantes confirmados para as trilhas magnas.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {speakers.map((s) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          {speakers.map((s, index) => (
             <motion.div 
               key={s.id} 
-              whileHover={{ y: -5 }}
-              className="group relative bg-blue-950/60 p-[2px] rounded-[2.5rem] border border-purple-500/10 backdrop-blur-xl transition-all duration-500"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative w-full max-w-[320px] group"
             >
-              <div className="bg-blue-950/90 rounded-[2.4rem] p-10 flex flex-col items-center text-center h-full opacity-80">
+              {/* Card Principal */}
+              <div className="relative bg-blue-900/10 border border-purple-500/10 rounded-[2.5rem] p-6 text-center backdrop-blur-sm transition-all duration-300 group-hover:border-purple-500/30 group-hover:bg-blue-900/20">
                 
-                <div className="relative mb-8">
-                  <div className="w-32 h-32 rounded-full bg-blue-900/30 flex items-center justify-center border-2 border-dashed border-purple-500/30">
-                    <Lock className="w-10 h-10 text-purple-500/30" />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 bg-blue-900 p-3 rounded-full border-4 border-blue-950">
-                    <Sparkles className="w-5 h-5 text-purple-400" />
-                  </div>
+                {/* Container da Imagem com tamanho equilibrado */}
+                <div className="relative w-48 h-48 mx-auto mb-6 overflow-hidden rounded-[2rem] border-2 border-purple-500/20 shadow-xl">
+                  <Image 
+                    src={s.image} 
+                    alt={s.name} 
+                    fill 
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Overlay sutil para dar acabamento */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent" />
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-bold text-white tracking-tight opacity-70">
-                    {s.name}
-                  </h3>
-                  <p className="text-sm font-bold text-blue-400/50 uppercase tracking-widest px-4 py-1.5 rounded-full inline-block border border-blue-900/50">
-                    {s.role}
-                  </p>
+                  <div className="flex items-center justify-center gap-2">
+                    <Sparkles className="w-4 h-4 text-purple-400 opacity-60" />
+                    <h3 className="text-xl font-bold text-white tracking-tight">
+                      {s.name}
+                    </h3>
+                  </div>
+                  
+                  <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20">
+                    <p className="text-[11px] font-black text-purple-300 uppercase tracking-[0.15em]">
+                      {s.role}
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              {/* Glow sutil atrás do card */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/0 to-blue-600/0 rounded-[2.6rem] -z-10 group-hover:from-purple-600/10 group-hover:to-blue-600/10 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
